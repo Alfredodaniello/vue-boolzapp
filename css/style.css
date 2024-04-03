@@ -17,7 +17,7 @@ body {
 
 .container-bot {
     height: 80vh;
-    color: #d8dbd6;
+    background-color: #d8dbd7;
 }
 
 .container-main {
@@ -26,19 +26,56 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     height: 95vh;
-    width: 85VW;
+    width: 80VW;
 }
 
 .col-30 {
     height: 100%;
     width: 30%;
-    background-color: red;
 }
 
 .col-70 {
     height: 100%;
     width: 70%;
-    background-color: blue;
+}
+
+.my-profile {
+    min-height: 60px;
+    background-color: #eaeaea;
+    border-right: 1px solid gray;
+}
+
+.my-alert {
+    min-height: 70px;
+    background-color: #8edafc;
+    border-right: 1px solid gray;
+}
+
+.my-search {
+    min-height: 40px;
+    background-color: #fafafa;
+    border-right: 1px solid gray;
+}
+
+.my-user {
+    min-height: calc(100% - 170px);
+    background-color: #ffffff;
+    border-right: 1px solid gray;
+}
+
+.selected-user {
+    height: 60px;
+    background-color: #eaeaea;
+}
+
+.chat {
+    background-image: url(../img/mine.jpg);
+    height: calc(100% - 120px);
+}
+
+.text {
+    min-height: 60px;
+    background-color: #f3eeea;
 }
 
 /**************************
