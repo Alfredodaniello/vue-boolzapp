@@ -15,9 +15,29 @@
     <main>
         <div class="container-main d-flex">
             <div class="col-30">
-                <div class="my-profile"></div>
-                <div class="my-alert"></div>
-                <div class="my-search"></div>
+                <div class="my-profile d-flex align-items-center">
+                    <div class="pic rounded-circle mx-2">
+                        <img src="img/avatar_io.jpg" alt="profile-pic">
+                    </div>
+                    <span class="flex-grow-1">Sofia</span>
+                    <div class="icons d-flex gap-3 mx-3">
+                        <span><i class="fa-solid fa-circle-notch"></i></span>
+                        <span><i class="fa-solid fa-message"></i></span>
+                        <span><i class="fa-solid fa-ellipsis-vertical"></i></span>
+                    </div>
+                </div>
+                <div class="my-alert d-flex px-3 align-items-center gap-2">
+                    <div class="pic alert-circle d-flex justify-content-center align-items-center">
+                        <span><i class="fa-solid far fa-bell-slash"></i></span>
+                    </div>
+                    <div class="not d-flex flex-column">
+                        <span class="my-not">Ricevi notifiche di nuovi messaggi</span>
+                        <span class="my-not-bot">Attiva notifiche desktop</span>
+                    </div>
+                </div>
+                <div class="my-search d-flex justify-content-center align-items-center">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                </div>
                 <div class="my-user"></div>
             </div>
             <div class="col-70">

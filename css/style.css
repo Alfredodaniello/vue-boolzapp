@@ -6,7 +6,7 @@ body {
     position: relative;
 }
 
-/**************************
+/************************** 
         MAIN
 **************************/
 
@@ -52,13 +52,13 @@ body {
 }
 
 .my-search {
-    min-height: 40px;
+    min-height: 50px;
     background-color: #fafafa;
     border-right: 1px solid gray;
 }
 
 .my-user {
-    min-height: calc(100% - 170px);
+    min-height: calc(100% - 180px);
     background-color: #ffffff;
     border-right: 1px solid gray;
 }
@@ -76,6 +76,47 @@ body {
 .text {
     min-height: 60px;
     background-color: #f3eeea;
+}
+
+.pic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+img {
+    width: 100%;
+}
+
+.icons i {
+    color: gray;
+}
+
+.alert-circle {
+    color: #8edafc;
+    background-color: #ffffff;
+}
+
+.not {
+    margin-top: -4px;
+}
+
+.my-not {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: -3px;
+}
+
+.my-not-bot {
+    color: gray;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+.my-search .form-control {
+    width: 95%;
+    height: 60%;
 }
 
 /**************************
