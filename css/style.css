@@ -119,6 +119,32 @@ img {
     height: 60%;
 }
 
+.user-container {
+    height: 70px;
+}
+
+.selected-user {
+    background-color: #e9ebeb;
+}
+
+.user-container h6 {
+    margin-bottom: -2px;
+}
+
+.user-container .pic {
+    width: 55px;
+    height: 55px;
+}
+
+.user-container {
+    border-bottom: 1px solid #d8dbd7;
+}
+
+.last-mex {
+    font-size: 13px;
+    color: gray;
+}
+
 /**************************
         RESPONSIVE
 **************************/
