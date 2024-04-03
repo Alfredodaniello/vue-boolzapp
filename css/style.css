@@ -70,11 +70,11 @@ body {
 
 .chat {
     background-image: url(../img/mine.jpg);
-    height: calc(100% - 120px);
+    height: calc(100% - 110px);
 }
 
 .text {
-    min-height: 60px;
+    min-height: 50px;
     background-color: #f3eeea;
 }
 
@@ -127,7 +127,7 @@ img {
     background-color: #e9ebeb;
 }
 
-.user-container h6 {
+h6 {
     margin-bottom: -2px;
 }
 
@@ -145,14 +145,33 @@ img {
     color: gray;
 }
 
+.message {
+    width: 40%;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.recived {
+    background-color: #ffffff;
+}
+
+.sent {
+    background-color: #d5f9ba;
+}
+
+.text .form-control {
+    width: 80%;
+}
+
+.text i {
+    color: gray
+}
+
 /**************************
         RESPONSIVE
 **************************/
 
 @media screen and (max-width: 1200px) {
-    body {
-        overflow-y: hidden;
-    }
 
     .container-main {
         min-width: 1000px;
