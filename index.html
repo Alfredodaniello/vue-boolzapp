@@ -98,12 +98,13 @@
                             </div>
                         </div>
                     </div>
+                    <!--input section-->
                     <div class="text d-flex justify-content-between px-5 align-items-center">
                         <div class="d-flex justify-content-center">
                             <i class="fa-regular fa-face-smile"></i>
                         </div>
                         <input class="form-control" type="text" placeholder="Scrivi un messaggio"
-                            aria-label="default input example">
+                            aria-label="default input example" v-model="newMessage" @keydown.enter="sendMessage()">
                         <div>
                             <i class="fa-solid fa-microphone"></i>
                         </div>
