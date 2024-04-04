@@ -13,6 +13,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+          activeUser: 0,
             contacts: [{
                 name: 'Michele',
                 avatar: '_1',
@@ -96,5 +97,9 @@ createApp({
         };
     },
     methods: {
+      active(index){
+        this.activeUser = index;
+        console.log(this.activeUser)
+      }
     }
 }).mount('#app');

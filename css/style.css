@@ -46,6 +46,7 @@ body {
 }
 
 .my-alert {
+    cursor: pointer;
     min-height: 70px;
     background-color: #8edafc;
     border-right: 1px solid gray;
@@ -58,7 +59,7 @@ body {
 }
 
 .my-user {
-    min-height: calc(100% - 180px);
+    height: calc(100% - 180px);
     background-color: #ffffff;
     border-right: 1px solid gray;
 }
@@ -119,14 +120,6 @@ img {
     height: 60%;
 }
 
-.user-container {
-    height: 70px;
-}
-
-.selected-user {
-    background-color: #e9ebeb;
-}
-
 h6 {
     margin-bottom: -2px;
 }
@@ -137,25 +130,31 @@ h6 {
 }
 
 .user-container {
+    height: 70px;
+    cursor: pointer;
     border-bottom: 1px solid #d8dbd7;
 }
 
 .last-mex {
-    font-size: 13px;
+    font-size: 11px;
     color: gray;
 }
 
 .message {
+    font-size: 13px;
     width: 40%;
-    height: 50px;
+    min-height: 60px;
     border-radius: 10px;
 }
 
-.recived {
+.received {
+    margin-top: 10px;
     background-color: #ffffff;
 }
 
 .sent {
+    margin-left: 445px;
+    margin-top: 10px;
     background-color: #d5f9ba;
 }
 
@@ -165,6 +164,18 @@ h6 {
 
 .text i {
     color: gray
+}
+
+.user-container:hover {
+    background-color: #e9ebeb;
+}
+
+.this_chat {
+    background-color: #e9e9e9;
+}
+
+i {
+    cursor: pointer;
 }
 
 /**************************
