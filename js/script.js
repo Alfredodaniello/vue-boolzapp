@@ -22,6 +22,7 @@ Milestone 5
 
 const { createApp } = Vue;
 
+
 createApp({
     data() {
         return {
@@ -125,6 +126,15 @@ createApp({
       };
       this.contacts[this.activeUser].messages.push(myMessage);
       this.newMessage = "";
-  },
     },
+    //funzione per generare il mex di risposta
+    receivedMessage() {
+      const receivedMessage= {
+        date: "",
+        message: "Ok",
+        status: "received"
+      };
+      this.contacts[this.activeUser].messages.push(receivedMessage);
+    },
+  },
 }).mount('#app');
