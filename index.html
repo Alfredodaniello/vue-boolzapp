@@ -5,6 +5,11 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Boolzapp!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <!--Fontawesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <!--Bootstrap-->
@@ -16,9 +21,9 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel='stylesheet' href='css/style.css'>
 </head>
-<div id="app">
 
-    <body>
+<body>
+    <div id="app">
         <main>
             <div class="container-main d-flex">
                 <!--Left Col-->
@@ -36,7 +41,7 @@
                         </div>
                     </div>
                     <!--Alert section-->
-                    <div class="my-alert d-flex px-3 align-items-center gap-2">
+                    <div class="my-alert d-flex align-items-center px-3 gap-2">
                         <div class="pic alert-circle d-flex justify-content-center align-items-center">
                             <span><i class="fa-solid far fa-bell-slash"></i></span>
                         </div>
@@ -47,13 +52,14 @@
                     </div>
                     <!--Searchbar section-->
                     <div class="my-search d-flex justify-content-center align-items-center">
-                        <input class="form-control" type="search" placeholder="Cerca o inizia una nuova chat"
-                            aria-label="Search">
+                        <input class="form-control" type="text" placeholder="Cerca o inizia una nuova chat"
+                            aria-label="Search" v-model="searchContacts"
+                            @keyup="filterContacts(contacts, searchContacts)">
                     </div>
                     <!--Chat section-->
                     <div class="my-user overflow-y-scroll">
-                        <div class="user-container d-flex" v-for="user, index in contacts" @click="active(index)"
-                            :class="{ this_chat : activeUser === index }">
+                        <div class="user-container singlecontact" v-for="user, index in contacts" @click="active(index)"
+                            :class="{ this_chat : activeUser === index, displaynone: user.visible === false }">
                             <div class=" d-flex align-items-center">
                                 <div class="pic mx-2">
                                     <img :src="'img/avatar' + user.avatar + '.jpg'" alt="user">
@@ -61,7 +67,8 @@
                             </div>
                             <div class="d-flex flex-grow-1 flex-column mx-2 pt-1">
                                 <h6>{{user.name}}</h6>
-                                <span class="last-mex">Ultimo messaggio inviato</span>
+                                <span class="last-mex">{{user.messages[user.messages.length -
+                                    1].message}}</span>
                             </div>
                             <span class="last-mex pt-1 mx-3">12:00</span>
                         </div>
@@ -87,15 +94,23 @@
                         </div>
                     </div>
                     <!--My chat section-->
-                    <div class="container chat px-5 pt-5 overflow-y-scroll">
+                    <div class="container-fluid chat px-5 pt-5 overflow-y-scroll">
                         <div class="row">
                             <div class="col-12">
                                 <div class="d-flex justify-content-end"></div>
-                                <div v-for="mex in contacts[activeUser].messages"
-                                    class="message px-2 d-flex justify-content-between"
+                                <div v-for="mex, index in contacts[activeUser].messages"
+                                    class="message px-2 d-flex justify-content-between dropdown position-relative"
                                     :class="{ sent: mex.status === 'sent', received: mex.status === 'received' }">
-                                    <span class="d-flex pt-2">{{mex.message}}</span>
-                                    <span class="d-flex align-items-end last-mex text-nowrap">{{mex.date}}</span>
+                                    <span class="d-flex align-items-center myMex">{{mex.message}}</span>
+                                    <span
+                                        class="d-flex align-items-end last-mex text-nowrap dateMex">{{mex.date}}</span>
+                                    <i class="fa-solid fa-chevron-down d-none" data-bs-toggle="dropdown"
+                                        aria-expanded="false"></i>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Message Info</a></li>
+                                        <li><a class="dropdown-item" @click="deleteMessage(index)" href="#">Delete
+                                                Message</a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -107,7 +122,7 @@
                         </div>
                         <input class="form-control" type="text" placeholder="Scrivi un messaggio"
                             aria-label="default input example" v-model="newMessage"
-                            @keydown.enter="sendMessage(), receivedMessage()">
+                            @keydown.enter="sendMessage(), timeout(receivedMessage)">
                         <div>
                             <i class="fa-solid fa-microphone"></i>
                         </div>
@@ -117,12 +132,15 @@
             <div class="container-top"></div>
             <div class="container-bot"></div>
         </main>
-        <script src='js/script.js'></script>
-        <!--Bootstrap-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
-    </body>
-</div>
+
+    </div>
+
+    <script src='js/script.js'></script>
+    <!--Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
 
 </html>
