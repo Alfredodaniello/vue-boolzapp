@@ -160,6 +160,7 @@ createApp({
       //funzione che mi permette di cancellare un messaggio
       deleteMessage(index) {
           this.contacts[this.activeUser].messages.splice(index, 1);
-      }
+      },
+    
   }
 }).mount('#app');

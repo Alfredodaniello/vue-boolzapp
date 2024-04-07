@@ -28,6 +28,7 @@
             <div class="container-main d-flex">
                 <!--Left Col-->
                 <div class="col-30">
+
                     <!--Profile section-->
                     <div class="my-profile d-flex align-items-center">
                         <div class="pic mx-2">
@@ -40,6 +41,7 @@
                             <span><i class="fa-solid fa-ellipsis-vertical"></i></span>
                         </div>
                     </div>
+
                     <!--Alert section-->
                     <div class="my-alert d-flex align-items-center px-3 gap-2">
                         <div class="pic alert-circle d-flex justify-content-center align-items-center">
@@ -50,6 +52,7 @@
                             <span class="my-not-bot">Attiva notifiche desktop</span>
                         </div>
                     </div>
+
                     <!--Searchbar section-->
                     <div class="my-search d-flex justify-content-center align-items-center">
                         <input class="form-control" type="text" placeholder="Cerca o inizia una nuova chat"
@@ -67,20 +70,23 @@
                             </div>
                             <div class="d-flex flex-grow-1 flex-column mx-2 pt-1">
                                 <h6>{{user.name}}</h6>
-                                <span class="last-mex">{{user.messages[user.messages.length -
+                                <span v-if="user.messages.length > 0"
+                                    class="last-mex">{{user.messages[user.messages.length -
                                     1].message}}</span>
                             </div>
                             <span class="last-mex pt-1 mx-3">12:00</span>
                         </div>
                     </div>
                 </div>
+
                 <!--Right Col-->
                 <div class="col-70">
+
                     <!--Active user-->
                     <div class="selected-user d-flex align-items-center">
                         <div class="d-flex align-items-center flex-grow-1">
                             <div class="pic mx-2 d-flex">
-                                <img :src="'img/avatar' + contacts[activeUser].avatar + '.jpg'" alt="user">
+                                <img :src="'img/avatar'+ contacts[activeUser].avatar +'.jpg'" alt="user">
                             </div>
                             <div class="d-flex flex-column">
                                 <h6>{{contacts[activeUser].name}}</h6>
@@ -93,6 +99,7 @@
                             <span><i class="fa-solid fa-ellipsis-vertical"></i></span>
                         </div>
                     </div>
+
                     <!--My chat section-->
                     <div class="container-fluid chat px-5 pt-5 overflow-y-scroll">
                         <div class="row">
@@ -115,6 +122,7 @@
                             </div>
                         </div>
                     </div>
+
                     <!--input section-->
                     <div class="text d-flex justify-content-between px-5 align-items-center">
                         <div class="d-flex justify-content-center">
